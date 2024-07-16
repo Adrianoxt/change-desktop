@@ -1,0 +1,15 @@
+{
+  "name": "update-image",
+  "version": "1.0.0",
+  "description": "tricky",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "axt",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^10.0.1"
+  }
+}
