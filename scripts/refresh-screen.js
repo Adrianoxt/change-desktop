@@ -6,7 +6,7 @@ const refreshWindowsScreen = () => {
 
   exec(
     `powershell -ExecutionPolicy Bypass -File "${scriptPath}"`,
-    (error, stdout, stderr) => {
+    (error, _stdout, stderr) => {
       if (error) {
         console.error(`Error: ${error.message}`);
         return;
