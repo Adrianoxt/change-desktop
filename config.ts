@@ -1,7 +1,7 @@
-const path = require("node:path");
-const os = require('os');
+import path from "node:path";
+import os from 'os';
 
-module.exports = {
+export default {
     sourcePath: path.join(__dirname, "images"),
     destinationPath: `C:/Users/${os.userInfo().username}/AppData/Roaming/Microsoft/Windows/Themes`
 };

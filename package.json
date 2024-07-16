@@ -2,14 +2,20 @@
   "name": "update-image",
   "version": "1.0.0",
   "description": "tricky",
-  "main": "index.js",
+  "main": "app.ts",
+  "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "tsx app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "axt",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^10.0.1"
-  }
+    "@inquirer/select": "^2.3.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "keywords": []
 }

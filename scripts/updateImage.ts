@@ -1,21 +1,21 @@
-const fs = require("fs");
-const path = require("path");
-const refreshWindowsScreen = require("./refresh-screen");
+import fs from "fs";
+import path from "path";
+import { refreshWindowsScreen } from "./refresh-screen";
 
 const windowsFileName = "TranscodedWallpaper";
-const backupFolder = path.join(__dirname, "..", "backup");
+const backupFolder = path.join(__dirname, "backup");
 
-const createBackupFolder = (destinationPath) => {
+const createBackupFolder = (destinationPath: string) => {
   if (!fs.existsSync(backupFolder)) {
     fs.mkdirSync("backup");
   }
   if (!fs.readdirSync(backupFolder).length) {
     fs.cpSync(destinationPath, backupFolder, { recursive: true });
-    console.log('Backup Created!')
+    console.log("Backup Created!");
   }
 };
 
-const updateImage = (filePath, destinationPath) => {
+export const updateImage = (filePath: string, destinationPath: string) => {
   const transcodedFilePath = path.join(destinationPath, windowsFileName);
 
   const cachedFile = fs.readdirSync(
@@ -40,5 +40,3 @@ const updateImage = (filePath, destinationPath) => {
     refreshWindowsScreen();
   }, 200);
 };
-
-module.exports = updateImage;
