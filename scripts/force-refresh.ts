@@ -1,8 +1,8 @@
 import { exec } from "child_process";
 import path from "path";
 
-export const refreshWindowsScreen = () => {
-  const scriptPath = path.join(__dirname, "scripts", "windows", "refresh-desktop.ps1");
+export const forceRefresh = async () => {
+  const scriptPath = path.join(__dirname, "scripts", "windows", "force-refresh.ps1");
   exec(
     `powershell -ExecutionPolicy Bypass -File "${scriptPath}"`,
     (error, _stdout, stderr) => {

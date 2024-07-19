@@ -1,11 +1,13 @@
 import fs from "fs";
 import path from "path";
 import { refreshWindowsScreen } from "./refresh-screen";
+import config from "./../config";
 
 const windowsFileName = "TranscodedWallpaper";
-const backupFolder = path.join(__dirname, "backup");
 
-const createBackupFolder = (destinationPath: string) => {
+const { destinationPath, backupFolder } = config;
+
+const createBackupFolder = () => {
   if (!fs.existsSync(backupFolder)) {
     fs.mkdirSync("backup");
   }
@@ -15,7 +17,7 @@ const createBackupFolder = (destinationPath: string) => {
   }
 };
 
-export const updateImage = (filePath: string, destinationPath: string) => {
+export const updateImage = (filePath: string) => {
   const transcodedFilePath = path.join(destinationPath, windowsFileName);
 
   const cachedFile = fs.readdirSync(
@@ -30,7 +32,7 @@ export const updateImage = (filePath: string, destinationPath: string) => {
   }
 
   if (!fs.existsSync(backupFolder) || !fs.readdirSync(backupFolder).length) {
-    createBackupFolder(destinationPath);
+    createBackupFolder();
   }
 
   fs.copyFileSync(filePath, transcodedFilePath);
